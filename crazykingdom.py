@@ -1,11 +1,13 @@
 import pygame
+from pathlib import Path
 import random
 pygame.init()
 pygame.mixer.init()
 scr = pygame.display.set_mode((900, 900))
 pygame.display.set_caption("Rule the Kingdom")
+BASE_DIR = Path(__file__).resolve().parent
 
-pygame.mixer.music.load(".\\animation\\game-over-252897.mp3")
+pygame.mixer.music.load(str(BASE_DIR / "game-over-252897.mp3"))
 pygame.mixer.music.set_volume(0.05)
 pygame.mixer.music.play(-1)
 
@@ -14,25 +16,33 @@ def show_text(msg, x, y, color, size):
     msgobj = fontobj.render(msg, False, color)
     scr.blit(msgobj, (x, y))
 
-BackGround = pygame.image.load(".\\animation\\freetileset\\png\\BG\\BG.png")
+
+
+
+
+
+BackGround = pygame.image.load(
+    str(BASE_DIR / "freetileset" / "png" / "BG" / "BG.png")
+)
 BackGround = pygame.transform.scale(BackGround, (900, 900))
 
-Char_1 = pygame.image.load(".\\animation\\redhatfiles\\png\\Idle (1).png")
+Char_1 = pygame.image.load(str(BASE_DIR / "redhatfiles" / "png" / "Idle (1).png"))
 Char_1 = pygame.transform.scale(Char_1, (200, 300))
 
-Char_2 = pygame.image.load(".\\animation\\templerun\\Idle__001.png")
-Char_2 = pygame.transform.scale(Char_2,(200,300))
+Char_2 = pygame.image.load(str(BASE_DIR / "templerun" / "Idle__001.png"))
+Char_2 = pygame.transform.scale(Char_2, (200, 300))
 
-Char_3 = pygame.image.load(".\\animation\\freeknight\\png\\Idle (1).png")
-Char_3 = pygame.transform.scale(Char_3,(200,300))
+Char_3 = pygame.image.load(str(BASE_DIR / "freeknight" / "png" / "Idle (1).png"))
+Char_3 = pygame.transform.scale(Char_3, (200, 300))
 
-Char_4 = pygame.image.load(".\\animation\\adventure_girl\\png\\Idle (1).png")
-Char_4 = pygame.transform.scale(Char_4,(200,300))
+Char_4 = pygame.image.load(str(BASE_DIR / "adventure_girl" / "png" / "Idle (1).png"))
+Char_4 = pygame.transform.scale(Char_4, (200, 300))
 
-Characters=[Char_1,Char_2,Char_3,Char_4]
+Characters = [Char_1, Char_2, Char_3, Char_4]
 
-SpeechBubble = pygame.image.load(".\\animation\\speech-bubble-145979_1280.png")
-SpeechBubble = pygame.transform.scale(SpeechBubble,(110,100))
+SpeechBubble = pygame.image.load(str(BASE_DIR / "speech-bubble-145979_1280.png"))
+SpeechBubble = pygame.transform.scale(SpeechBubble, (110, 100))
+
 
 Color_1 = (46, 139, 87)
 
